@@ -12,7 +12,6 @@ The project uses D3.js and Chart.js for the visualization.
 The project uses a basic CSS framework with flex boxes and is mainly designed for easy usability
 This portion of the project demonstrates the popularity of dance pop and energetic songs, and is an indicator of how current trends have remained the same over time. 
 
-
 Jessica
 
 I used the Spotify API to create an website/app which, upon clicking the "log in with Spotify!" button, the user will be redirected to Spotify's login, and if the user is authenticated through Spotify, the login page will redirect to a page which generates the user's top 10 artists within the last 6 months. The artists' popularity rating and genre is also displayed to the user.
@@ -35,4 +34,6 @@ npm install
 Then
 ```
 npm start
+```
+=======
 ```

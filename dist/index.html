@@ -1,0 +1,122 @@
+<!doctype html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
+    <title>INST 377 Final Project</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/style.css" />
+    <style type="text/css">
+      #login, #loggedin {
+        display: none;
+      }
+      .text-overflow {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 500px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+
+      <div id="login" style="display: flex; justify-content: center;">
+        <br>
+        <h1>Show Your Top 10 Spotify Artists From Past 6 Months!</h1>
+        <br>
+        <div >
+          <img class="spotify-icon" src="/public/images/Spotify_icon.webp" alt="Spotify icon" />
+          <br>
+        </div> 
+        <a href="/login" class="time-btn">Log in with Spotify</a>
+        <div class="seperator">
+          <hr>
+        </div>
+      </div>
+      <div id="loggedin">
+        <br>
+        <div id="user-profile">
+        </div>
+        <div id="artist-profile">
+        </div>
+        <div id="oauth">
+        </div>
+        <br>
+        <br>
+        <div id="options">
+					<button class="time-btn" id="show_artist">Show My Top Artists</button>
+          <button class="time-btn" id="obtain-new-token">Obtain new token using the refresh token</button>
+				</div>
+      </div>
+    </div>
+
+    <script id="user-profile-template" type="text/x-handlebars-template">
+      <h1>Logged in as {{display_name}}</h1>
+      <div class="media">
+        <div class="pull-left">
+          <img class="media-object" width="150" src="{{images.0.url}}" />
+        </div>
+        <div class="media-body">
+          <dl class="dl-horizontal">
+            <dt>Email</dt><dd>{{email}}</dd>
+            <dt>Spotify URI</dt><dd><a href="{{external_urls.spotify}}">{{external_urls.spotify}}</a></dd>
+            <dt>Profile Image</dt><dd class="clearfix"><a href="{{images.0.url}}">{{images.0.url}}</a></dd>
+            <dt>Country</dt><dd>{{country}}</dd>
+          </dl>
+        </div>
+      </div>
+    </script>
+
+    <script id="artist-template" type="text/x-handlebars-template">
+      <div class="artistContainer">
+        <table id="artistsTable">
+          <thead>
+						<td class='begin'>
+							No.
+						</td>
+						<td>
+							Artist
+						</td>
+						<td class='popularity'>
+							Popularity
+						</td>
+            <td class='genre'>
+							Genre
+						</td>
+					</thead>
+          <tbody>
+              {{#each artists}}     
+                  <tr>
+                      <td class='begin'>
+                          {{this.index}}
+                      </td>
+                      <td class='name'>
+                        {{ this.name}}
+                      </td>
+                      <td class='popularity'>
+                        {{ this.popularity}}
+                      </td>
+                      <td class='genre'>
+                        {{ this.genre}}
+                      </td>
+                  </tr>
+              {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </script>
+
+    <script id="oauth-template" type="text/x-handlebars-template">
+      <h2>oAuth info</h2>
+      <dl class="dl-horizontal">
+        <dt>Access token</dt><dd class="text-overflow">{{access_token}}</dd>
+        <dt>Refresh token</dt><dd class="text-overflow">{{refresh_token}}</dd>
+      </dl>
+    </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="/public/script.js"></script>
+  </body>
+</html>
