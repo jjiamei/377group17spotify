@@ -24,7 +24,7 @@ we imagined, so it took me a while to create a working version of this app.
 
 There is an issue from the API that only allowed user within the Spotify development dashboard can access their top artist's infos. If you want to test out the feature, please email jjiang07@terpmail.umd.edu with your name and email account associated with your Spotify account.
 
-The app is hosted on Heroku as Github Page only allows to host static pages.
+The app is hosted on Heroku as Github Page only allows to host static pages and can be accessed at [https://spotify-my-top-artist.herokuapp.com/](https://spotify-my-top-artist.herokuapp.com/).
 
 To start, first do 
 ```
